@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sDev</groupId>
 	<artifactId>shopping</artifactId>
-	<packaging>war</packaging>
+	<!-- <packaging>war</packaging> -->
 	<version>0.0.1-SNAPSHOT</version>
 	<name>shopping Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -12,6 +12,12 @@
 		<spring-version>4.3.6.RELEASE</spring-version>
 	</properties>
 	<dependencies>
+		<!-- shopping backend linking -->
+		<dependency>
+			<groupId>com.sDev</groupId>
+			<artifactId>shoppingBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
