@@ -23,10 +23,14 @@
 <title>Welcome to ${title}</title>
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap core CSS -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Bootstrap readable CSS -->
 <%-- <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet"> --%>
@@ -61,9 +65,20 @@
 			<!-- Page Content END-->
 		</div>
 		<%@include file="./shared/footer.jsp"%>
-		<!-- Bootstrap core JavaScript -->
+		
+		<!-- Jquery plugin -->
 		<script src="${js}/jquery.js"></script>
+		
+		<!-- Bootstrap core JS -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- jQuery Data Table Js -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- jQuery Data Table Js -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!--  -->
 		<script src="${js}/myJS/myapp.js"></script>
 	</div>
 </body>
