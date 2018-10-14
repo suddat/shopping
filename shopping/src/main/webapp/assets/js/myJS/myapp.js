@@ -1,5 +1,5 @@
 $(function() {
-	console.log("--->", menu);
+	console.log("--->", window.contextRoot);
 	switch (menu) {
 	case "About":
 		$("#about").addClass("active");
@@ -18,9 +18,10 @@ $(function() {
 		break;
 	}
 
-	var products = [ [ '1', 'ABC' ], [ '2', 'XYZ' ], [ '3', 'ZXYABC' ],
-			[ '4', 'i3' ], [ '5', 'i5' ], [ '6', 'ryzen 5' ],
-			[ '7', 'ryzen 3' ] ];
+	/*
+	 * var products = [ [ '1', 'ABC' ], [ '2', 'XYZ' ], [ '3', 'ZXYABC' ], [
+	 * '4', 'i3' ], [ '5', 'i5' ], [ '6', 'ryzen 5' ], [ '7', 'ryzen 3' ] ];
+	 */
 	var $table = $("#productListTable");
 
 	// execute this code only where this table is available
@@ -48,7 +49,10 @@ $(function() {
 							{
 								data : 'code',
 								mRender : function(data, type, row) {
-									return '<img class="dataTableImg" src="'+window.contextRoot+'/resources/images/'+data+'.jpg">';
+									return '<img class="dataTableImg" src="'
+											+ window.contextRoot
+											+ '/resources/images/' + data
+											+ '.jpg">';
 								}
 							},
 							{
@@ -64,7 +68,13 @@ $(function() {
 								}
 							},
 							{
-								data : 'quantity'
+								data : 'quantity',
+								mRender : function(data, type, row) {
+									if (data < 1) {
+										return '<span style="color:red;">Out of Stock!</span>';
+									}
+									return data;
+								}
 							},
 							{
 								data : 'id',
@@ -73,12 +83,15 @@ $(function() {
 									var str = '';
 									str += '<a href="'
 											+ window.contextRoot
-											+ '"/show/'
+											+ '/show/'
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>';
+									if (row.quantity < 1) {
+										str += ' <a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									}
 									str += ' <a href="'
 											+ window.contextRoot
-											+ '"/cart/add/'
+											+ '/cart/add/'
 											+ data
 											+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 									return str;

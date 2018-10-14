@@ -13,7 +13,7 @@
    http://www.springframework.org/schema/mvc/spring-mvc.xsd
    ">
 	<context:component-scan
-		base-package="com.sDev.shopping.controller"></context:component-scan>
+		base-package="com.sDev.shopping"></context:component-scan>
 	<context:component-scan
 		base-package="com.sDev.shoppingBackend"></context:component-scan>
 
